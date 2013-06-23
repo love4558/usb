@@ -1,0 +1,1 @@
+cmd_/projects/ECUcore-5484/driver/My_first_usb_driver/built-in.o :=  rm -f /projects/ECUcore-5484/driver/My_first_usb_driver/built-in.o; ar rcsD /projects/ECUcore-5484/driver/My_first_usb_driver/built-in.o

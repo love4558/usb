@@ -1,0 +1,1 @@
+cmd_/projects/ECUcore-5484/driver/My_first_usb_driver/systec_can.ko := ld -r -m elf_i386 -T /usr/src/linux-headers-3.0.0-14-generic/scripts/module-common.lds --build-id  -o /projects/ECUcore-5484/driver/My_first_usb_driver/systec_can.ko /projects/ECUcore-5484/driver/My_first_usb_driver/systec_can.o /projects/ECUcore-5484/driver/My_first_usb_driver/systec_can.mod.o
