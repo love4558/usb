@@ -3,13 +3,36 @@ cmd_/projects/ECUcore-5484/driver/My_first_usb_driver/systec_can.o := gcc -Wp,-M
 source_/projects/ECUcore-5484/driver/My_first_usb_driver/systec_can.o := /projects/ECUcore-5484/driver/My_first_usb_driver/systec_can.c
 
 deps_/projects/ECUcore-5484/driver/My_first_usb_driver/systec_can.o := \
-  include/linux/usb.h \
-    $(wildcard include/config/usb/devicefs.h) \
-    $(wildcard include/config/usb/mon.h) \
-    $(wildcard include/config/usb/device/class.h) \
-    $(wildcard include/config/pm.h) \
-    $(wildcard include/config/usb/suspend.h) \
-  include/linux/mod_devicetable.h \
+  include/linux/init.h \
+    $(wildcard include/config/modules.h) \
+    $(wildcard include/config/hotplug.h) \
+  include/linux/compiler.h \
+    $(wildcard include/config/sparse/rcu/pointer.h) \
+    $(wildcard include/config/trace/branch/profiling.h) \
+    $(wildcard include/config/profile/all/branches.h) \
+    $(wildcard include/config/enable/must/check.h) \
+    $(wildcard include/config/enable/warn/deprecated.h) \
+  include/linux/compiler-gcc.h \
+    $(wildcard include/config/arch/supports/optimized/inlining.h) \
+    $(wildcard include/config/optimize/inlining.h) \
+  include/linux/compiler-gcc4.h \
+  include/linux/module.h \
+    $(wildcard include/config/symbol/prefix.h) \
+    $(wildcard include/config/sysfs.h) \
+    $(wildcard include/config/modversions.h) \
+    $(wildcard include/config/unused/symbols.h) \
+    $(wildcard include/config/generic/bug.h) \
+    $(wildcard include/config/kallsyms.h) \
+    $(wildcard include/config/smp.h) \
+    $(wildcard include/config/tracepoints.h) \
+    $(wildcard include/config/tracing.h) \
+    $(wildcard include/config/event/tracing.h) \
+    $(wildcard include/config/ftrace/mcount/record.h) \
+    $(wildcard include/config/module/unload.h) \
+    $(wildcard include/config/constructors.h) \
+    $(wildcard include/config/debug/set/module/ronx.h) \
+  include/linux/list.h \
+    $(wildcard include/config/debug/list.h) \
   include/linux/types.h \
     $(wildcard include/config/uid16.h) \
     $(wildcard include/config/lbdaf.h) \
@@ -23,39 +46,25 @@ deps_/projects/ECUcore-5484/driver/My_first_usb_driver/systec_can.o := \
   include/asm-generic/bitsperlong.h \
   include/linux/posix_types.h \
   include/linux/stddef.h \
-  include/linux/compiler.h \
-    $(wildcard include/config/sparse/rcu/pointer.h) \
-    $(wildcard include/config/trace/branch/profiling.h) \
-    $(wildcard include/config/profile/all/branches.h) \
-    $(wildcard include/config/enable/must/check.h) \
-    $(wildcard include/config/enable/warn/deprecated.h) \
-  include/linux/compiler-gcc.h \
-    $(wildcard include/config/arch/supports/optimized/inlining.h) \
-    $(wildcard include/config/optimize/inlining.h) \
-  include/linux/compiler-gcc4.h \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/posix_types.h \
     $(wildcard include/config/x86/32.h) \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/posix_types_32.h \
-  include/linux/usb/ch9.h \
-    $(wildcard include/config/size.h) \
-    $(wildcard include/config/att/one.h) \
-    $(wildcard include/config/att/selfpower.h) \
-    $(wildcard include/config/att/wakeup.h) \
-    $(wildcard include/config/att/battery.h) \
-  include/linux/errno.h \
-  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/errno.h \
-  include/asm-generic/errno.h \
-  include/asm-generic/errno-base.h \
-  include/linux/delay.h \
+  include/linux/poison.h \
+    $(wildcard include/config/illegal/pointer/value.h) \
+  include/linux/const.h \
+  include/linux/stat.h \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/stat.h \
+  include/linux/time.h \
+    $(wildcard include/config/arch/uses/gettimeoffset.h) \
+  include/linux/cache.h \
+    $(wildcard include/config/arch/has/cache/line/size.h) \
   include/linux/kernel.h \
     $(wildcard include/config/preempt/voluntary.h) \
     $(wildcard include/config/debug/spinlock/sleep.h) \
     $(wildcard include/config/prove/locking.h) \
     $(wildcard include/config/ring/buffer.h) \
-    $(wildcard include/config/tracing.h) \
     $(wildcard include/config/numa.h) \
     $(wildcard include/config/compaction.h) \
-    $(wildcard include/config/ftrace/mcount/record.h) \
   /usr/lib/gcc/i686-linux-gnu/4.6.1/include/stdarg.h \
   include/linux/linkage.h \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/linkage.h \
@@ -66,7 +75,6 @@ deps_/projects/ECUcore-5484/driver/My_first_usb_driver/systec_can.o := \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/bitops.h \
     $(wildcard include/config/x86/cmov.h) \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/alternative.h \
-    $(wildcard include/config/smp.h) \
     $(wildcard include/config/paravirt.h) \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/asm.h \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/cpufeature.h \
@@ -98,29 +106,26 @@ deps_/projects/ECUcore-5484/driver/My_first_usb_driver/systec_can.o := \
   include/linux/printk.h \
     $(wildcard include/config/printk.h) \
     $(wildcard include/config/dynamic/debug.h) \
-  include/linux/init.h \
-    $(wildcard include/config/modules.h) \
-    $(wildcard include/config/hotplug.h) \
   include/linux/dynamic_debug.h \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/bug.h \
     $(wildcard include/config/bug.h) \
     $(wildcard include/config/debug/bugverbose.h) \
   include/asm-generic/bug.h \
-    $(wildcard include/config/generic/bug.h) \
     $(wildcard include/config/generic/bug/relative/pointers.h) \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/div64.h \
-  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/delay.h \
-  include/linux/interrupt.h \
-    $(wildcard include/config/generic/hardirqs.h) \
-    $(wildcard include/config/lockdep.h) \
-    $(wildcard include/config/pm/sleep.h) \
-    $(wildcard include/config/irq/forced/threading.h) \
-    $(wildcard include/config/generic/irq/probe.h) \
-    $(wildcard include/config/proc/fs.h) \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/cache.h \
+    $(wildcard include/config/x86/l1/cache/shift.h) \
+    $(wildcard include/config/x86/internode/cache/shift.h) \
+    $(wildcard include/config/x86/vsmp.h) \
+  include/linux/seqlock.h \
+  include/linux/spinlock.h \
+    $(wildcard include/config/debug/spinlock.h) \
+    $(wildcard include/config/generic/lockbreak.h) \
+    $(wildcard include/config/preempt.h) \
+    $(wildcard include/config/debug/lock/alloc.h) \
   include/linux/preempt.h \
     $(wildcard include/config/debug/preempt.h) \
     $(wildcard include/config/preempt/tracer.h) \
-    $(wildcard include/config/preempt.h) \
     $(wildcard include/config/preempt/notifiers.h) \
   include/linux/thread_info.h \
     $(wildcard include/config/compat.h) \
@@ -128,7 +133,6 @@ deps_/projects/ECUcore-5484/driver/My_first_usb_driver/systec_can.o := \
     $(wildcard include/config/debug/stack/usage.h) \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/page.h \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/page_types.h \
-  include/linux/const.h \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/page_32_types.h \
     $(wildcard include/config/highmem4g.h) \
     $(wildcard include/config/highmem64g.h) \
@@ -149,7 +153,6 @@ deps_/projects/ECUcore-5484/driver/My_first_usb_driver/systec_can.o := \
     $(wildcard include/config/sparsemem.h) \
   include/asm-generic/getorder.h \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/processor.h \
-    $(wildcard include/config/x86/vsmp.h) \
     $(wildcard include/config/cc/stackprotector.h) \
     $(wildcard include/config/m386.h) \
     $(wildcard include/config/m486.h) \
@@ -189,12 +192,12 @@ deps_/projects/ECUcore-5484/driver/My_first_usb_driver/systec_can.o := \
     $(wildcard include/config/irqsoff/tracer.h) \
     $(wildcard include/config/trace/irqflags/support.h) \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/irqflags.h \
-    $(wildcard include/config/debug/lock/alloc.h) \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/paravirt.h \
     $(wildcard include/config/transparent/hugepage.h) \
     $(wildcard include/config/paravirt/spinlocks.h) \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/pgtable_types.h \
     $(wildcard include/config/compat/vdso.h) \
+    $(wildcard include/config/proc/fs.h) \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/pgtable_32_types.h \
     $(wildcard include/config/highmem.h) \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/pgtable-2level_types.h \
@@ -218,13 +221,11 @@ deps_/projects/ECUcore-5484/driver/My_first_usb_driver/systec_can.o := \
   include/linux/ioctl.h \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/ioctl.h \
   include/asm-generic/ioctl.h \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/errno.h \
+  include/asm-generic/errno.h \
+  include/asm-generic/errno-base.h \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/cpumask.h \
   include/linux/personality.h \
-  include/linux/cache.h \
-    $(wildcard include/config/arch/has/cache/line/size.h) \
-  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/cache.h \
-    $(wildcard include/config/x86/l1/cache/shift.h) \
-    $(wildcard include/config/x86/internode/cache/shift.h) \
   include/linux/math64.h \
   include/linux/err.h \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/ftrace.h \
@@ -233,80 +234,13 @@ deps_/projects/ECUcore-5484/driver/My_first_usb_driver/systec_can.o := \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/atomic.h \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/atomic64_32.h \
   include/asm-generic/atomic-long.h \
-  include/linux/list.h \
-    $(wildcard include/config/debug/list.h) \
-  include/linux/poison.h \
-    $(wildcard include/config/illegal/pointer/value.h) \
-  include/linux/irqreturn.h \
-  include/linux/irqnr.h \
-  include/linux/hardirq.h \
-    $(wildcard include/config/virt/cpu/accounting.h) \
-    $(wildcard include/config/irq/time/accounting.h) \
-    $(wildcard include/config/no/hz.h) \
-    $(wildcard include/config/tiny/rcu.h) \
-    $(wildcard include/config/tiny/preempt/rcu.h) \
-  include/linux/lockdep.h \
-    $(wildcard include/config/lock/stat.h) \
-    $(wildcard include/config/prove/rcu.h) \
-  include/linux/ftrace_irq.h \
-    $(wildcard include/config/ftrace/nmi/enter.h) \
-  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/hardirq.h \
-    $(wildcard include/config/x86/thermal/vector.h) \
-    $(wildcard include/config/x86/mce/threshold.h) \
-  include/linux/irq.h \
-    $(wildcard include/config/s390.h) \
-    $(wildcard include/config/irq/release/method.h) \
-    $(wildcard include/config/generic/pending/irq.h) \
-  include/linux/smp.h \
-    $(wildcard include/config/use/generic/smp/helpers.h) \
-  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/smp.h \
-    $(wildcard include/config/x86/io/apic.h) \
-    $(wildcard include/config/x86/32/smp.h) \
-  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/mpspec.h \
-    $(wildcard include/config/x86/numaq.h) \
-    $(wildcard include/config/mca.h) \
-    $(wildcard include/config/eisa.h) \
-    $(wildcard include/config/x86/mpparse.h) \
-    $(wildcard include/config/acpi.h) \
-  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/mpspec_def.h \
-  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/x86_init.h \
-  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/bootparam.h \
-  include/linux/screen_info.h \
-  include/linux/apm_bios.h \
-  include/linux/edd.h \
-  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/e820.h \
-    $(wildcard include/config/nodes/shift.h) \
-    $(wildcard include/config/efi.h) \
-    $(wildcard include/config/intel/txt.h) \
-    $(wildcard include/config/hibernation.h) \
-    $(wildcard include/config/memtest.h) \
-  include/linux/numa.h \
-  include/linux/ioport.h \
-  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/ist.h \
-  include/video/edid.h \
-    $(wildcard include/config/x86.h) \
-  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/apicdef.h \
-  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/apic.h \
-    $(wildcard include/config/x86/x2apic.h) \
-  include/linux/pm.h \
-    $(wildcard include/config/pm/runtime.h) \
-  include/linux/workqueue.h \
-    $(wildcard include/config/debug/objects/work.h) \
-    $(wildcard include/config/freezer.h) \
-  include/linux/timer.h \
-    $(wildcard include/config/timer/stats.h) \
-    $(wildcard include/config/debug/objects/timers.h) \
-  include/linux/ktime.h \
-    $(wildcard include/config/ktime/scalar.h) \
-  include/linux/time.h \
-    $(wildcard include/config/arch/uses/gettimeoffset.h) \
-  include/linux/seqlock.h \
-  include/linux/spinlock.h \
-    $(wildcard include/config/debug/spinlock.h) \
-    $(wildcard include/config/generic/lockbreak.h) \
   include/linux/bottom_half.h \
   include/linux/spinlock_types.h \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/spinlock_types.h \
+  include/linux/lockdep.h \
+    $(wildcard include/config/lockdep.h) \
+    $(wildcard include/config/lock/stat.h) \
+    $(wildcard include/config/prove/rcu.h) \
   include/linux/rwlock_types.h \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/spinlock.h \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/rwlock.h \
@@ -341,6 +275,92 @@ deps_/projects/ECUcore-5484/driver/My_first_usb_driver/systec_can.o := \
     $(wildcard include/config/inline/write/unlock/irq.h) \
     $(wildcard include/config/inline/read/unlock/irqrestore.h) \
     $(wildcard include/config/inline/write/unlock/irqrestore.h) \
+  include/linux/kmod.h \
+  include/linux/gfp.h \
+    $(wildcard include/config/zone/dma.h) \
+    $(wildcard include/config/zone/dma32.h) \
+  include/linux/mmzone.h \
+    $(wildcard include/config/force/max/zoneorder.h) \
+    $(wildcard include/config/memory/hotplug.h) \
+    $(wildcard include/config/arch/populates/node/map.h) \
+    $(wildcard include/config/flat/node/mem/map.h) \
+    $(wildcard include/config/cgroup/mem/res/ctlr.h) \
+    $(wildcard include/config/no/bootmem.h) \
+    $(wildcard include/config/have/memory/present.h) \
+    $(wildcard include/config/have/memoryless/nodes.h) \
+    $(wildcard include/config/need/node/memmap/size.h) \
+    $(wildcard include/config/need/multiple/nodes.h) \
+    $(wildcard include/config/have/arch/early/pfn/to/nid.h) \
+    $(wildcard include/config/sparsemem/extreme.h) \
+    $(wildcard include/config/have/arch/pfn/valid.h) \
+    $(wildcard include/config/nodes/span/other/nodes.h) \
+    $(wildcard include/config/holes/in/zone.h) \
+    $(wildcard include/config/arch/has/holes/memorymodel.h) \
+  include/linux/wait.h \
+  include/linux/numa.h \
+    $(wildcard include/config/nodes/shift.h) \
+  include/linux/nodemask.h \
+  include/linux/pageblock-flags.h \
+    $(wildcard include/config/hugetlb/page/size/variable.h) \
+  include/generated/bounds.h \
+  include/linux/memory_hotplug.h \
+    $(wildcard include/config/memory/hotremove.h) \
+    $(wildcard include/config/have/arch/nodedata/extension.h) \
+  include/linux/notifier.h \
+  include/linux/errno.h \
+  include/linux/mutex.h \
+    $(wildcard include/config/debug/mutexes.h) \
+    $(wildcard include/config/have/arch/mutex/cpu/relax.h) \
+  include/linux/rwsem.h \
+    $(wildcard include/config/rwsem/generic/spinlock.h) \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/rwsem.h \
+  include/linux/srcu.h \
+  include/linux/topology.h \
+    $(wildcard include/config/sched/smt.h) \
+    $(wildcard include/config/sched/mc.h) \
+    $(wildcard include/config/sched/book.h) \
+    $(wildcard include/config/use/percpu/numa/node/id.h) \
+  include/linux/smp.h \
+    $(wildcard include/config/use/generic/smp/helpers.h) \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/smp.h \
+    $(wildcard include/config/x86/io/apic.h) \
+    $(wildcard include/config/x86/32/smp.h) \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/mpspec.h \
+    $(wildcard include/config/x86/numaq.h) \
+    $(wildcard include/config/mca.h) \
+    $(wildcard include/config/eisa.h) \
+    $(wildcard include/config/x86/mpparse.h) \
+    $(wildcard include/config/acpi.h) \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/mpspec_def.h \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/x86_init.h \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/bootparam.h \
+  include/linux/screen_info.h \
+  include/linux/apm_bios.h \
+  include/linux/edd.h \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/e820.h \
+    $(wildcard include/config/efi.h) \
+    $(wildcard include/config/intel/txt.h) \
+    $(wildcard include/config/hibernation.h) \
+    $(wildcard include/config/memtest.h) \
+  include/linux/ioport.h \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/ist.h \
+  include/video/edid.h \
+    $(wildcard include/config/x86.h) \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/apicdef.h \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/apic.h \
+    $(wildcard include/config/x86/x2apic.h) \
+  include/linux/pm.h \
+    $(wildcard include/config/pm.h) \
+    $(wildcard include/config/pm/sleep.h) \
+    $(wildcard include/config/pm/runtime.h) \
+  include/linux/workqueue.h \
+    $(wildcard include/config/debug/objects/work.h) \
+    $(wildcard include/config/freezer.h) \
+  include/linux/timer.h \
+    $(wildcard include/config/timer/stats.h) \
+    $(wildcard include/config/debug/objects/timers.h) \
+  include/linux/ktime.h \
+    $(wildcard include/config/ktime/scalar.h) \
   include/linux/jiffies.h \
   include/linux/timex.h \
   include/linux/param.h \
@@ -353,7 +373,6 @@ deps_/projects/ECUcore-5484/driver/My_first_usb_driver/systec_can.o := \
   include/linux/debugobjects.h \
     $(wildcard include/config/debug/objects.h) \
     $(wildcard include/config/debug/objects/free.h) \
-  include/linux/wait.h \
   include/linux/completion.h \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/fixmap.h \
     $(wildcard include/config/provide/ohci1394/dma/init.h) \
@@ -367,16 +386,11 @@ deps_/projects/ECUcore-5484/driver/My_first_usb_driver/systec_can.o := \
   include/acpi/pdc_intel.h \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/numa.h \
     $(wildcard include/config/numa/emu.h) \
-  include/linux/nodemask.h \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/topology.h \
     $(wildcard include/config/x86/ht.h) \
   include/asm-generic/topology.h \
-    $(wildcard include/config/have/memoryless/nodes.h) \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/numa_32.h \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/mmu.h \
-  include/linux/mutex.h \
-    $(wildcard include/config/debug/mutexes.h) \
-    $(wildcard include/config/have/arch/mutex/cpu/relax.h) \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/trampoline.h \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/io.h \
     $(wildcard include/config/xen.h) \
@@ -388,106 +402,24 @@ deps_/projects/ECUcore-5484/driver/My_first_usb_driver/systec_can.o := \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/io_apic.h \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/irq_vectors.h \
     $(wildcard include/config/sparse/irq.h) \
-  include/linux/gfp.h \
-    $(wildcard include/config/zone/dma.h) \
-    $(wildcard include/config/zone/dma32.h) \
-  include/linux/mmzone.h \
-    $(wildcard include/config/force/max/zoneorder.h) \
-    $(wildcard include/config/memory/hotplug.h) \
-    $(wildcard include/config/arch/populates/node/map.h) \
-    $(wildcard include/config/flat/node/mem/map.h) \
-    $(wildcard include/config/cgroup/mem/res/ctlr.h) \
-    $(wildcard include/config/no/bootmem.h) \
-    $(wildcard include/config/have/memory/present.h) \
-    $(wildcard include/config/need/node/memmap/size.h) \
-    $(wildcard include/config/need/multiple/nodes.h) \
-    $(wildcard include/config/have/arch/early/pfn/to/nid.h) \
-    $(wildcard include/config/sparsemem/extreme.h) \
-    $(wildcard include/config/have/arch/pfn/valid.h) \
-    $(wildcard include/config/nodes/span/other/nodes.h) \
-    $(wildcard include/config/holes/in/zone.h) \
-    $(wildcard include/config/arch/has/holes/memorymodel.h) \
-  include/linux/pageblock-flags.h \
-    $(wildcard include/config/hugetlb/page/size/variable.h) \
-  include/generated/bounds.h \
-  include/linux/memory_hotplug.h \
-    $(wildcard include/config/memory/hotremove.h) \
-    $(wildcard include/config/have/arch/nodedata/extension.h) \
-  include/linux/notifier.h \
-  include/linux/rwsem.h \
-    $(wildcard include/config/rwsem/generic/spinlock.h) \
-  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/rwsem.h \
-  include/linux/srcu.h \
-  include/linux/topology.h \
-    $(wildcard include/config/sched/smt.h) \
-    $(wildcard include/config/sched/mc.h) \
-    $(wildcard include/config/sched/book.h) \
-    $(wildcard include/config/use/percpu/numa/node/id.h) \
   include/linux/percpu.h \
     $(wildcard include/config/need/per/cpu/embed/first/chunk.h) \
     $(wildcard include/config/need/per/cpu/page/first/chunk.h) \
   include/linux/pfn.h \
   include/linux/mmdebug.h \
     $(wildcard include/config/debug/vm.h) \
-  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/irq.h \
-  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/irq_regs.h \
-  include/linux/irqdesc.h \
-    $(wildcard include/config/irq/preflow/fasteoi.h) \
-  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/hw_irq.h \
-    $(wildcard include/config/intr/remap.h) \
-  include/linux/profile.h \
-    $(wildcard include/config/profiling.h) \
-  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/sections.h \
-    $(wildcard include/config/debug/rodata.h) \
-  include/asm-generic/sections.h \
-  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/uaccess.h \
-    $(wildcard include/config/x86/wp/works/ok.h) \
-    $(wildcard include/config/x86/intel/usercopy.h) \
-  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/uaccess_32.h \
-    $(wildcard include/config/debug/strict/user/copy/checks.h) \
-  include/linux/hrtimer.h \
-    $(wildcard include/config/high/res/timers.h) \
-    $(wildcard include/config/timerfd.h) \
-  include/linux/rbtree.h \
-  include/linux/timerqueue.h \
-  include/linux/kref.h \
-  include/trace/events/irq.h \
-  include/linux/tracepoint.h \
-    $(wildcard include/config/tracepoints.h) \
+  include/linux/sysctl.h \
   include/linux/rcupdate.h \
     $(wildcard include/config/rcu/torture/test.h) \
     $(wildcard include/config/tree/rcu.h) \
     $(wildcard include/config/tree/preempt/rcu.h) \
     $(wildcard include/config/preempt/rcu.h) \
+    $(wildcard include/config/no/hz.h) \
+    $(wildcard include/config/tiny/rcu.h) \
+    $(wildcard include/config/tiny/preempt/rcu.h) \
     $(wildcard include/config/debug/objects/rcu/head.h) \
     $(wildcard include/config/preempt/rt.h) \
   include/linux/rcutree.h \
-  include/linux/jump_label.h \
-    $(wildcard include/config/jump/label.h) \
-  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/jump_label.h \
-  include/trace/define_trace.h \
-    $(wildcard include/config/event/tracing.h) \
-  include/linux/device.h \
-    $(wildcard include/config/debug/devres.h) \
-    $(wildcard include/config/devtmpfs.h) \
-    $(wildcard include/config/sysfs/deprecated.h) \
-  include/linux/kobject.h \
-  include/linux/sysfs.h \
-    $(wildcard include/config/sysfs.h) \
-  include/linux/kobject_ns.h \
-  include/linux/klist.h \
-  include/linux/module.h \
-    $(wildcard include/config/symbol/prefix.h) \
-    $(wildcard include/config/modversions.h) \
-    $(wildcard include/config/unused/symbols.h) \
-    $(wildcard include/config/kallsyms.h) \
-    $(wildcard include/config/module/unload.h) \
-    $(wildcard include/config/constructors.h) \
-    $(wildcard include/config/debug/set/module/ronx.h) \
-  include/linux/stat.h \
-  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/stat.h \
-  include/linux/kmod.h \
-  include/linux/sysctl.h \
   include/linux/elf.h \
   include/linux/elf-em.h \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/elf.h \
@@ -505,13 +437,22 @@ deps_/projects/ECUcore-5484/driver/My_first_usb_driver/systec_can.o := \
     $(wildcard include/config/mmu/notifier.h) \
   include/linux/auxvec.h \
   include/linux/prio_tree.h \
+  include/linux/rbtree.h \
   include/linux/page-debug-flags.h \
     $(wildcard include/config/page/poisoning.h) \
     $(wildcard include/config/page/debug/something/else.h) \
+  include/linux/kobject.h \
+  include/linux/sysfs.h \
+  include/linux/kobject_ns.h \
+  include/linux/kref.h \
   include/linux/moduleparam.h \
     $(wildcard include/config/alpha.h) \
     $(wildcard include/config/ia64.h) \
     $(wildcard include/config/ppc64.h) \
+  include/linux/tracepoint.h \
+  include/linux/jump_label.h \
+    $(wildcard include/config/jump/label.h) \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/jump_label.h \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/module.h \
     $(wildcard include/config/m586.h) \
     $(wildcard include/config/m586tsc.h) \
@@ -537,6 +478,65 @@ deps_/projects/ECUcore-5484/driver/My_first_usb_driver/systec_can.o := \
     $(wildcard include/config/mgeode/lx.h) \
   include/asm-generic/module.h \
   include/trace/events/module.h \
+  include/trace/define_trace.h \
+  include/linux/usb.h \
+    $(wildcard include/config/usb/devicefs.h) \
+    $(wildcard include/config/usb/mon.h) \
+    $(wildcard include/config/usb/device/class.h) \
+    $(wildcard include/config/usb/suspend.h) \
+  include/linux/mod_devicetable.h \
+  include/linux/usb/ch9.h \
+    $(wildcard include/config/size.h) \
+    $(wildcard include/config/att/one.h) \
+    $(wildcard include/config/att/selfpower.h) \
+    $(wildcard include/config/att/wakeup.h) \
+    $(wildcard include/config/att/battery.h) \
+  include/linux/delay.h \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/delay.h \
+  include/linux/interrupt.h \
+    $(wildcard include/config/generic/hardirqs.h) \
+    $(wildcard include/config/irq/forced/threading.h) \
+    $(wildcard include/config/generic/irq/probe.h) \
+  include/linux/irqreturn.h \
+  include/linux/irqnr.h \
+  include/linux/hardirq.h \
+    $(wildcard include/config/virt/cpu/accounting.h) \
+    $(wildcard include/config/irq/time/accounting.h) \
+  include/linux/ftrace_irq.h \
+    $(wildcard include/config/ftrace/nmi/enter.h) \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/hardirq.h \
+    $(wildcard include/config/x86/thermal/vector.h) \
+    $(wildcard include/config/x86/mce/threshold.h) \
+  include/linux/irq.h \
+    $(wildcard include/config/s390.h) \
+    $(wildcard include/config/irq/release/method.h) \
+    $(wildcard include/config/generic/pending/irq.h) \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/irq.h \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/irq_regs.h \
+  include/linux/irqdesc.h \
+    $(wildcard include/config/irq/preflow/fasteoi.h) \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/hw_irq.h \
+    $(wildcard include/config/intr/remap.h) \
+  include/linux/profile.h \
+    $(wildcard include/config/profiling.h) \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/sections.h \
+    $(wildcard include/config/debug/rodata.h) \
+  include/asm-generic/sections.h \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/uaccess.h \
+    $(wildcard include/config/x86/wp/works/ok.h) \
+    $(wildcard include/config/x86/intel/usercopy.h) \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/uaccess_32.h \
+    $(wildcard include/config/debug/strict/user/copy/checks.h) \
+  include/linux/hrtimer.h \
+    $(wildcard include/config/high/res/timers.h) \
+    $(wildcard include/config/timerfd.h) \
+  include/linux/timerqueue.h \
+  include/trace/events/irq.h \
+  include/linux/device.h \
+    $(wildcard include/config/debug/devres.h) \
+    $(wildcard include/config/devtmpfs.h) \
+    $(wildcard include/config/sysfs/deprecated.h) \
+  include/linux/klist.h \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/device.h \
     $(wildcard include/config/dmar.h) \
     $(wildcard include/config/amd/iommu.h) \

@@ -3,6 +3,7 @@ cmd_/projects/ECUcore-5484/driver/My_first_usb_driver/systec_can.mod.o := gcc -W
 source_/projects/ECUcore-5484/driver/My_first_usb_driver/systec_can.mod.o := /projects/ECUcore-5484/driver/My_first_usb_driver/systec_can.mod.c
 
 deps_/projects/ECUcore-5484/driver/My_first_usb_driver/systec_can.mod.o := \
+    $(wildcard include/config/module/unload.h) \
   include/linux/module.h \
     $(wildcard include/config/symbol/prefix.h) \
     $(wildcard include/config/sysfs.h) \
@@ -16,7 +17,6 @@ deps_/projects/ECUcore-5484/driver/My_first_usb_driver/systec_can.mod.o := \
     $(wildcard include/config/tracing.h) \
     $(wildcard include/config/event/tracing.h) \
     $(wildcard include/config/ftrace/mcount/record.h) \
-    $(wildcard include/config/module/unload.h) \
     $(wildcard include/config/constructors.h) \
     $(wildcard include/config/debug/set/module/ronx.h) \
   include/linux/list.h \
