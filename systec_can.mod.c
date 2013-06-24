@@ -22,6 +22,7 @@ __attribute__((section("__versions"))) = {
 	{ 0xd28de0e8, "usb_register_driver" },
 	{ 0x50eedeb8, "printk" },
 	{ 0xc425ff4f, "__alloc_workqueue_key" },
+	{ 0xb4390f9a, "mcount" },
 };
 
 static const char __module_depends[]
@@ -30,4 +31,4 @@ __attribute__((section(".modinfo"))) =
 "depends=";
 
 
-MODULE_INFO(srcversion, "9D40014C46A8064BA493ED1");
+MODULE_INFO(srcversion, "0F0C2D6264AD7A249074D5F");

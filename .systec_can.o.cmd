@@ -479,59 +479,85 @@ deps_/projects/ECUcore-5484/driver/My_first_usb_driver/systec_can.o := \
   include/asm-generic/module.h \
   include/trace/events/module.h \
   include/trace/define_trace.h \
-  include/linux/usb.h \
-    $(wildcard include/config/usb/devicefs.h) \
-    $(wildcard include/config/usb/mon.h) \
-    $(wildcard include/config/usb/device/class.h) \
-    $(wildcard include/config/usb/suspend.h) \
-  include/linux/mod_devicetable.h \
-  include/linux/usb/ch9.h \
-    $(wildcard include/config/size.h) \
-    $(wildcard include/config/att/one.h) \
-    $(wildcard include/config/att/selfpower.h) \
-    $(wildcard include/config/att/wakeup.h) \
-    $(wildcard include/config/att/battery.h) \
-  include/linux/delay.h \
-  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/delay.h \
-  include/linux/interrupt.h \
-    $(wildcard include/config/generic/hardirqs.h) \
-    $(wildcard include/config/irq/forced/threading.h) \
-    $(wildcard include/config/generic/irq/probe.h) \
-  include/linux/irqreturn.h \
+  include/linux/netdevice.h \
+    $(wildcard include/config/dcb.h) \
+    $(wildcard include/config/wlan.h) \
+    $(wildcard include/config/ax25.h) \
+    $(wildcard include/config/mac80211/mesh.h) \
+    $(wildcard include/config/tr.h) \
+    $(wildcard include/config/net/ipip.h) \
+    $(wildcard include/config/net/ipgre.h) \
+    $(wildcard include/config/ipv6/sit.h) \
+    $(wildcard include/config/ipv6/tunnel.h) \
+    $(wildcard include/config/netpoll.h) \
+    $(wildcard include/config/rps.h) \
+    $(wildcard include/config/xps.h) \
+    $(wildcard include/config/rfs/accel.h) \
+    $(wildcard include/config/net/poll/controller.h) \
+    $(wildcard include/config/fcoe.h) \
+    $(wildcard include/config/wireless/ext.h) \
+    $(wildcard include/config/vlan/8021q.h) \
+    $(wildcard include/config/net/dsa.h) \
+    $(wildcard include/config/net/ns.h) \
+    $(wildcard include/config/net/dsa/tag/dsa.h) \
+    $(wildcard include/config/net/dsa/tag/trailer.h) \
+    $(wildcard include/config/netpoll/trap.h) \
+  include/linux/if.h \
+  include/linux/socket.h \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/socket.h \
+  include/asm-generic/socket.h \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/sockios.h \
+  include/asm-generic/sockios.h \
+  include/linux/sockios.h \
+  include/linux/uio.h \
+  include/linux/hdlc/ioctl.h \
+  include/linux/if_ether.h \
+  include/linux/skbuff.h \
+    $(wildcard include/config/nf/conntrack.h) \
+    $(wildcard include/config/bridge/netfilter.h) \
+    $(wildcard include/config/nf/defrag/ipv4.h) \
+    $(wildcard include/config/nf/defrag/ipv6.h) \
+    $(wildcard include/config/xfrm.h) \
+    $(wildcard include/config/net/sched.h) \
+    $(wildcard include/config/net/cls/act.h) \
+    $(wildcard include/config/ipv6/ndisc/nodetype.h) \
+    $(wildcard include/config/net/dma.h) \
+    $(wildcard include/config/network/secmark.h) \
+    $(wildcard include/config/network/phy/timestamping.h) \
+  include/linux/kmemcheck.h \
+  include/linux/net.h \
+  include/linux/random.h \
   include/linux/irqnr.h \
-  include/linux/hardirq.h \
-    $(wildcard include/config/virt/cpu/accounting.h) \
-    $(wildcard include/config/irq/time/accounting.h) \
-  include/linux/ftrace_irq.h \
-    $(wildcard include/config/ftrace/nmi/enter.h) \
-  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/hardirq.h \
-    $(wildcard include/config/x86/thermal/vector.h) \
-    $(wildcard include/config/x86/mce/threshold.h) \
-  include/linux/irq.h \
-    $(wildcard include/config/s390.h) \
-    $(wildcard include/config/irq/release/method.h) \
-    $(wildcard include/config/generic/pending/irq.h) \
-  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/irq.h \
-  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/irq_regs.h \
-  include/linux/irqdesc.h \
-    $(wildcard include/config/irq/preflow/fasteoi.h) \
-  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/hw_irq.h \
-    $(wildcard include/config/intr/remap.h) \
-  include/linux/profile.h \
-    $(wildcard include/config/profiling.h) \
-  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/sections.h \
-    $(wildcard include/config/debug/rodata.h) \
-  include/asm-generic/sections.h \
+    $(wildcard include/config/generic/hardirqs.h) \
+  include/linux/fcntl.h \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/fcntl.h \
+  include/asm-generic/fcntl.h \
+  include/linux/textsearch.h \
+  include/linux/slab.h \
+    $(wildcard include/config/slab/debug.h) \
+    $(wildcard include/config/failslab.h) \
+    $(wildcard include/config/slub.h) \
+    $(wildcard include/config/slob.h) \
+    $(wildcard include/config/debug/slab.h) \
+    $(wildcard include/config/slab.h) \
+  include/linux/slub_def.h \
+    $(wildcard include/config/slub/stats.h) \
+    $(wildcard include/config/slub/debug.h) \
+  include/linux/kmemleak.h \
+    $(wildcard include/config/debug/kmemleak.h) \
+  include/net/checksum.h \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/uaccess.h \
     $(wildcard include/config/x86/wp/works/ok.h) \
     $(wildcard include/config/x86/intel/usercopy.h) \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/uaccess_32.h \
     $(wildcard include/config/debug/strict/user/copy/checks.h) \
-  include/linux/hrtimer.h \
-    $(wildcard include/config/high/res/timers.h) \
-    $(wildcard include/config/timerfd.h) \
-  include/linux/timerqueue.h \
-  include/trace/events/irq.h \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/checksum.h \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/checksum_32.h \
+  include/linux/in6.h \
+  include/linux/dmaengine.h \
+    $(wildcard include/config/async/tx/enable/channel/switch.h) \
+    $(wildcard include/config/dma/engine.h) \
+    $(wildcard include/config/async/tx/dma.h) \
   include/linux/device.h \
     $(wildcard include/config/debug/devres.h) \
     $(wildcard include/config/devtmpfs.h) \
@@ -541,8 +567,111 @@ deps_/projects/ECUcore-5484/driver/My_first_usb_driver/systec_can.o := \
     $(wildcard include/config/dmar.h) \
     $(wildcard include/config/amd/iommu.h) \
   include/linux/pm_wakeup.h \
-  include/linux/fs.h \
+  include/linux/dma-mapping.h \
+    $(wildcard include/config/has/dma.h) \
+    $(wildcard include/config/have/dma/attrs.h) \
+    $(wildcard include/config/need/dma/map/state.h) \
+  include/linux/dma-attrs.h \
+  include/linux/bug.h \
+  include/linux/scatterlist.h \
+    $(wildcard include/config/debug/sg.h) \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/scatterlist.h \
+  include/asm-generic/scatterlist.h \
+    $(wildcard include/config/need/sg/dma/length.h) \
+  include/linux/mm.h \
+    $(wildcard include/config/sysctl.h) \
+    $(wildcard include/config/stack/growsup.h) \
+    $(wildcard include/config/ksm.h) \
+    $(wildcard include/config/debug/pagealloc.h) \
+    $(wildcard include/config/hugetlbfs.h) \
+  include/linux/debug_locks.h \
+    $(wildcard include/config/debug/locking/api/selftests.h) \
+  include/linux/range.h \
+  include/linux/bit_spinlock.h \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/pgtable.h \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/pgtable_32.h \
+    $(wildcard include/config/highpte.h) \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/pgtable_32_types.h \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/pgtable-2level.h \
+  include/asm-generic/pgtable.h \
+  include/linux/page-flags.h \
+    $(wildcard include/config/pageflags/extended.h) \
+    $(wildcard include/config/arch/uses/pg/uncached.h) \
+    $(wildcard include/config/memory/failure.h) \
+    $(wildcard include/config/swap.h) \
+    $(wildcard include/config/s390.h) \
+  include/linux/huge_mm.h \
+  include/linux/vmstat.h \
+    $(wildcard include/config/vm/event/counters.h) \
+  include/linux/vm_event_item.h \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/dma-mapping.h \
+    $(wildcard include/config/isa.h) \
+  include/linux/dma-debug.h \
+    $(wildcard include/config/dma/api/debug.h) \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/swiotlb.h \
+    $(wildcard include/config/swiotlb.h) \
+  include/linux/swiotlb.h \
+  include/asm-generic/dma-coherent.h \
+    $(wildcard include/config/have/generic/dma/coherent.h) \
+  include/asm-generic/dma-mapping-common.h \
+  include/linux/hrtimer.h \
+    $(wildcard include/config/high/res/timers.h) \
+    $(wildcard include/config/timerfd.h) \
+  include/linux/timerqueue.h \
+  include/linux/if_packet.h \
+  include/linux/if_link.h \
+  include/linux/netlink.h \
+  include/linux/capability.h \
+  include/linux/pm_qos_params.h \
+  include/linux/plist.h \
+    $(wildcard include/config/debug/pi/list.h) \
+  include/linux/miscdevice.h \
+  include/linux/major.h \
+  include/linux/delay.h \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/delay.h \
+  include/linux/rculist.h \
+  include/linux/ethtool.h \
+  include/linux/compat.h \
+    $(wildcard include/config/nfsd.h) \
+    $(wildcard include/config/nfsd/deprecated.h) \
+  include/net/net_namespace.h \
+    $(wildcard include/config/ipv6.h) \
+    $(wildcard include/config/ip/dccp.h) \
+    $(wildcard include/config/netfilter.h) \
+    $(wildcard include/config/wext/core.h) \
+    $(wildcard include/config/net.h) \
+  include/net/netns/core.h \
+  include/net/netns/mib.h \
+    $(wildcard include/config/xfrm/statistics.h) \
+  include/net/snmp.h \
+  include/linux/snmp.h \
+  include/linux/u64_stats_sync.h \
+  include/net/netns/unix.h \
+  include/net/netns/packet.h \
+  include/net/netns/ipv4.h \
+    $(wildcard include/config/ip/multiple/tables.h) \
     $(wildcard include/config/security.h) \
+    $(wildcard include/config/ip/mroute.h) \
+    $(wildcard include/config/ip/mroute/multiple/tables.h) \
+  include/net/inet_frag.h \
+  include/net/netns/ipv6.h \
+    $(wildcard include/config/ipv6/multiple/tables.h) \
+    $(wildcard include/config/ipv6/mroute.h) \
+    $(wildcard include/config/ipv6/mroute/multiple/tables.h) \
+  include/net/dst_ops.h \
+  include/linux/percpu_counter.h \
+  include/net/netns/dccp.h \
+  include/net/netns/x_tables.h \
+    $(wildcard include/config/bridge/nf/ebtables.h) \
+  include/linux/netfilter.h \
+    $(wildcard include/config/netfilter/debug.h) \
+    $(wildcard include/config/nf/nat/needed.h) \
+  include/linux/in.h \
+  include/net/flow.h \
+  include/linux/proc_fs.h \
+    $(wildcard include/config/proc/devicetree.h) \
+    $(wildcard include/config/proc/kcore.h) \
+  include/linux/fs.h \
     $(wildcard include/config/quota.h) \
     $(wildcard include/config/fsnotify.h) \
     $(wildcard include/config/ima.h) \
@@ -559,19 +688,15 @@ deps_/projects/ECUcore-5484/driver/My_first_usb_driver/systec_can.o := \
     $(wildcard include/config/blk/dev/integrity.h) \
   include/linux/kdev_t.h \
   include/linux/dcache.h \
-  include/linux/rculist.h \
   include/linux/rculist_bl.h \
   include/linux/list_bl.h \
-  include/linux/bit_spinlock.h \
   include/linux/path.h \
   include/linux/radix-tree.h \
   include/linux/pid.h \
-  include/linux/capability.h \
   include/linux/semaphore.h \
   include/linux/fiemap.h \
   include/linux/quota.h \
     $(wildcard include/config/quota/netlink/interface.h) \
-  include/linux/percpu_counter.h \
   include/linux/dqblk_xfs.h \
   include/linux/dqblk_v1.h \
   include/linux/dqblk_v2.h \
@@ -580,9 +705,55 @@ deps_/projects/ECUcore-5484/driver/My_first_usb_driver/systec_can.o := \
   include/linux/nfs.h \
   include/linux/sunrpc/msg_prot.h \
   include/linux/inet.h \
-  include/linux/fcntl.h \
-  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/fcntl.h \
-  include/asm-generic/fcntl.h \
+  include/linux/magic.h \
+  include/net/netns/conntrack.h \
+  include/linux/list_nulls.h \
+  include/net/netns/xfrm.h \
+  include/linux/xfrm.h \
+  include/linux/seq_file_net.h \
+  include/linux/seq_file.h \
+  include/net/dsa.h \
+  include/net/dcbnl.h \
+  include/linux/dcbnl.h \
+  include/linux/interrupt.h \
+    $(wildcard include/config/irq/forced/threading.h) \
+    $(wildcard include/config/generic/irq/probe.h) \
+  include/linux/irqreturn.h \
+  include/linux/hardirq.h \
+    $(wildcard include/config/virt/cpu/accounting.h) \
+    $(wildcard include/config/irq/time/accounting.h) \
+  include/linux/ftrace_irq.h \
+    $(wildcard include/config/ftrace/nmi/enter.h) \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/hardirq.h \
+    $(wildcard include/config/x86/thermal/vector.h) \
+    $(wildcard include/config/x86/mce/threshold.h) \
+  include/linux/irq.h \
+    $(wildcard include/config/irq/release/method.h) \
+    $(wildcard include/config/generic/pending/irq.h) \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/irq.h \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/irq_regs.h \
+  include/linux/irqdesc.h \
+    $(wildcard include/config/irq/preflow/fasteoi.h) \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/hw_irq.h \
+    $(wildcard include/config/intr/remap.h) \
+  include/linux/profile.h \
+    $(wildcard include/config/profiling.h) \
+  /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/sections.h \
+    $(wildcard include/config/debug/rodata.h) \
+  include/asm-generic/sections.h \
+  include/trace/events/irq.h \
+  include/linux/usb.h \
+    $(wildcard include/config/usb/devicefs.h) \
+    $(wildcard include/config/usb/mon.h) \
+    $(wildcard include/config/usb/device/class.h) \
+    $(wildcard include/config/usb/suspend.h) \
+  include/linux/mod_devicetable.h \
+  include/linux/usb/ch9.h \
+    $(wildcard include/config/size.h) \
+    $(wildcard include/config/att/one.h) \
+    $(wildcard include/config/att/selfpower.h) \
+    $(wildcard include/config/att/wakeup.h) \
+    $(wildcard include/config/att/battery.h) \
   include/linux/sched.h \
     $(wildcard include/config/sched/debug.h) \
     $(wildcard include/config/lockup/detector.h) \
@@ -615,7 +786,6 @@ deps_/projects/ECUcore-5484/driver/My_first_usb_driver/systec_can.o := \
     $(wildcard include/config/function/graph/tracer.h) \
     $(wildcard include/config/have/hw/breakpoint.h) \
     $(wildcard include/config/have/unstable/sched/clock.h) \
-    $(wildcard include/config/stack/growsup.h) \
     $(wildcard include/config/cgroup/sched.h) \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/cputime.h \
   include/asm-generic/cputime.h \
@@ -640,8 +810,6 @@ deps_/projects/ECUcore-5484/driver/My_first_usb_driver/systec_can.o := \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/unistd_32.h \
   include/linux/rtmutex.h \
     $(wildcard include/config/debug/rt/mutexes.h) \
-  include/linux/plist.h \
-    $(wildcard include/config/debug/pi/list.h) \
   include/linux/resource.h \
   /usr/src/linux-headers-3.0.0-14-generic/arch/x86/include/asm/resource.h \
   include/asm-generic/resource.h \
@@ -652,12 +820,10 @@ deps_/projects/ECUcore-5484/driver/My_first_usb_driver/systec_can.o := \
     $(wildcard include/config/debug/credentials.h) \
     $(wildcard include/config/user/ns.h) \
   include/linux/key.h \
-    $(wildcard include/config/sysctl.h) \
   include/linux/selinux.h \
     $(wildcard include/config/security/selinux.h) \
   include/linux/aio.h \
   include/linux/aio_abi.h \
-  include/linux/uio.h \
   include/linux/pm_runtime.h \
     $(wildcard include/config/pm/runtime/clk.h) \
     $(wildcard include/config/have/clk.h) \

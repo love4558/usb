@@ -2,13 +2,16 @@
 #include <linux/module.h>
 #include <linux/netdevice.h>
 #include <linux/usb.h>
+#include <linux/kref.h>
 #include <linux/workqueue.h>
+//#define NET_DEVICE
 
-#define NET_DEVICE
+#define to_usb_dev(d)	container_of(d, struct usb_dev_sample, kref)
+
 
 struct usb_device_id systec_can_main_table[] = {
 {USB_DEVICE(0x878, 0x1104)},	// sysWORXX USB-CANmodule1
-
+{}
 };
 
 static struct workqueue_struct *cmd_wq;
@@ -23,7 +26,6 @@ static const struct net_device_ops systec_netdev_ops;
 static struct file_operations systec_netdev_ops;
 #endif
 
-#ifndef NET_DEVICE
 struct usb_dev_sample{
 	struct usb_device * 	udev;
 	struct usb_interface * 	interface;
@@ -31,22 +33,40 @@ struct usb_dev_sample{
 	size_t			bulk_in_size;
 	__u8			bulk_in_endpointAddr;
 	__u8			bulk_out_endpointAddr;
-	struct kref		kref
-}
+	struct kref		kref;
+};
 
-#endif
+static struct usb_class_driver usb_class = {
+	.name = "usb/sytec_can%d",
+	.fops = &systec_netdev_ops,
+	.mode = S_IFCHR | S_IRUSR | S_IWUSR | S_IRGRP | S_IWGPR | S_IROTH,
+	.minor_base = USB_SKEL_MINOR_BASE,
+};
+
 /*********************************************************************
 define the function for systec_can_driver struct
 ********************************************************************/
+static void usb_delete(kref *kref);
 
-static void systec_can_main_disconnect(struct usb_interface *intf);
+static void systec_can_main_disconnect(struct usb_interface *intf)
+{
+	struct usb_dev_sample *dev;
+	int minor = interface -> minor;
 
-static void systec_can_main_probe(struct usb_interface *intf,
-			const struct usb_device_id *id);
+	dev = usb_get_intfdata(interface);
+	usb_set_infdata(interface, NULL);	
+	usb_deregister_dev(interface, &usb_class);
+
+	kref_put(&dev->kref, usb_delete);
+}
+
+static void systec_can_main_probe(struct usb_interface *intf, const struct usb_device_id *id)
+{
+
+}
 
 
 static struct usb_driver systec_can_driver = {
-	.owner = THIS_MODULE,
 	.name  = KBUILD_MODNAME,
 	.probe = systec_can_main_probe,
 	.disconnect = systec_can_main_disconnect,
@@ -59,11 +79,10 @@ static int systec_can_open(struct net_device *netdev);
 #else
 static int systec_can_open(struct inode *inode, struct file *file)
 {
-	struct usb_de_driver *dev;
+	struct usb_dev_sample *dev;
 	int subminor;
 	struct usb_interface *interface;
 	int retval = 0;
-	struct kref pkref;
 
 	subminor = iminor(inode);
 	interface = usb_find_interface(&systec_can_driver, subminor);
@@ -89,10 +108,10 @@ exit:
 static int systec_can_close(struct net_device *netdev);
 
 #else
-#define to_usb_dev(d)	container_of(d, usb_dev_sample, kref);
 static void usb_delete(struct kref *kref)
 {
-	struct usb_dev_sample *dev =to_usb_dev(kref);
+	struct usb_dev_sample *dev;
+	dev = to_usb_dev(kref);
 	usb_put_dev(dev->udev);
 	kfree(dev->bulk_in_buffer);
 	kfree(dev);
@@ -101,7 +120,7 @@ static void usb_delete(struct kref *kref)
 static int systec_can_close(struct inode *inode, struct file *file)
 {
 	struct usb_dev_sample *dev;
-	dev = (struct usb_dev_sample *)file-> private_data;;
+	dev = (struct usb_dev_sample *)file-> private_data;
 
 	kref_put(&dev->kref,usb_delete);
 	return 0;	
@@ -131,6 +150,9 @@ static struct file_operations systec_netdev_ops = {
 	.write = systec_can_write_stat_callback,
 	.release = systec_can_close,
 };
+
+
+
 #endif
 
 
@@ -162,7 +184,7 @@ static __exit systec_can_main_exit(void)
 {
 	pr_debug("systec_can_main_exit\n");
 	destroy_workqueue(cmd_wq);
-	usb_register(&systec_can_driver);
+	usb_deregister(&systec_can_driver);
 }
 
 module_init(systec_can_main_init);
