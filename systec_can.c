@@ -1,5 +1,6 @@
 #include <linux/init.h>
 #include <linux/module.h>
+#include <linux/netdevice.h>
 #include <linux/usb.h>
 #include <linux/workqueue.h>
 
@@ -22,22 +23,110 @@ static const struct net_device_ops systec_netdev_ops;
 static struct file_operations systec_netdev_ops;
 #endif
 
+#ifndef NET_DEVICE
+struct usb_dev_sample{
+	struct usb_device * 	udev;
+	struct usb_interface * 	interface;
+	unsigned char * 	bulk_in_buffer;
+	size_t			bulk_in_size;
+	__u8			bulk_in_endpointAddr;
+	__u8			bulk_out_endpointAddr;
+	struct kref		kref
+}
+
+#endif
+/*********************************************************************
+define the function for systec_can_driver struct
+********************************************************************/
+
+static void systec_can_main_disconnect(struct usb_interface *intf);
+
+static void systec_can_main_probe(struct usb_interface *intf,
+			const struct usb_device_id *id);
+
+
 static struct usb_driver systec_can_driver = {
-	.name = KBUILD_MODNAME,
+	.owner = THIS_MODULE,
+	.name  = KBUILD_MODNAME,
 	.probe = systec_can_main_probe,
 	.disconnect = systec_can_main_disconnect,
 	.id_table = systec_can_main_table,
 };
 
 #ifdef NET_DEVICE
+static int systec_can_open(struct net_device *netdev);
+
+#else
+static int systec_can_open(struct inode *inode, struct file *file)
+{
+	struct usb_de_driver *dev;
+	int subminor;
+	struct usb_interface *interface;
+	int retval = 0;
+	struct kref pkref;
+
+	subminor = iminor(inode);
+	interface = usb_find_interface(&systec_can_driver, subminor);
+	if (!interface){
+		err("%s - error, cann't find device for minor %d\n", __FUNCTION__, subminor);
+		retval = -ENODEV;		
+	}
+
+	dev = usb_get_intfdata(interface);
+	if(!dev){
+		retval = -ENODEV;
+		goto  exit;
+	}
+	
+	file -> private_data = dev;
+	kref_get(&dev->kref);
+exit:
+	return retval;
+}
+#endif
+
+#ifdef NET_DEVICE
+static int systec_can_close(struct net_device *netdev);
+
+#else
+#define to_usb_dev(d)	container_of(d, usb_dev_sample, kref);
+static void usb_delete(struct kref *kref)
+{
+	struct usb_dev_sample *dev =to_usb_dev(kref);
+	usb_put_dev(dev->udev);
+	kfree(dev->bulk_in_buffer);
+	kfree(dev);
+}
+
+static int systec_can_close(struct inode *inode, struct file *file)
+{
+	struct usb_dev_sample *dev;
+	dev = (struct usb_dev_sample *)file-> private_data;;
+
+	kref_put(&dev->kref,usb_delete);
+	return 0;	
+}
+#endif
+
+
+static netdev_tx_t systec_can_start_xmit(struct sk_buff *skb, 
+				struct net_device *netdev);
+
+static void systec_can_read_stat_callback(struct urb *urb);
+
+static void systec_can_write_stat_callback(struct urb *urb);
+
+
+#ifdef NET_DEVICE
 static const struct net_device_ops systec_netdev_ops = {
 	.ndo_open = systec_can_open,
-	.nod_stop = systec_can_close,
-	.nod_start_xmit = systec_can_start_xmit,
+	.ndo_stop = systec_can_close,
+	.ndo_start_xmit = systec_can_start_xmit,
 };
 #else
 static struct file_operations systec_netdev_ops = {
 	.owner = THIS_MODULE,
+	.open  = systec_can_open,
 	.read  = systec_can_read_stat_callback,
 	.write = systec_can_write_stat_callback,
 	.release = systec_can_close,
