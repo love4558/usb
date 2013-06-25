@@ -1,9 +1,14 @@
+#include <linux/kernel.h>
+#include <linux/errno.h>
+#include <linux/slab.h>
 #include <linux/init.h>
 #include <linux/module.h>
 #include <linux/netdevice.h>
 #include <linux/usb.h>
 #include <linux/kref.h>
 #include <linux/workqueue.h>
+#include <asm/uaccess.h>
+
 //#define NET_DEVICE
 
 #define to_usb_dev(d)	container_of(d, struct usb_dev_sample, kref)
@@ -39,25 +44,25 @@ struct usb_dev_sample{
 static struct usb_class_driver usb_class = {
 	.name = "usb/sytec_can%d",
 	.fops = &systec_netdev_ops,
-	.mode = S_IFCHR | S_IRUSR | S_IWUSR | S_IRGRP | S_IWGPR | S_IROTH,
-	.minor_base = USB_SKEL_MINOR_BASE,
+	.minor_base = 192,
 };
 
 /*********************************************************************
 define the function for systec_can_driver struct
 ********************************************************************/
-static void usb_delete(kref *kref);
+static void usb_delete(struct kref *kref);
 
 static void systec_can_main_disconnect(struct usb_interface *intf)
 {
 	struct usb_dev_sample *dev;
-	int minor = interface -> minor;
+	int minor = intf -> minor;
 
-	dev = usb_get_intfdata(interface);
-	usb_set_infdata(interface, NULL);	
-	usb_deregister_dev(interface, &usb_class);
+	dev = usb_get_intfdata(intf);
+	usb_set_intfdata(intf, NULL);	
+	usb_deregister_dev(intf, &usb_class);
 
 	kref_put(&dev->kref, usb_delete);
+	info("USB #%d now disconnected", minor);
 }
 
 static void systec_can_main_probe(struct usb_interface *intf, const struct usb_device_id *id)
